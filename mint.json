@@ -1,0 +1,78 @@
+{
+  "name": "Fabra",
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg"
+  },
+  "api": {
+    "baseUrl": "https://app.fabra.io"
+  },
+  "versions": ["v1.0"],
+  "favicon": "/favicon.png",
+  "colors": {
+    "primary": "#2DB476",
+    "light": "#66E3AA",
+    "dark": "#058349",
+    "anchors": { "from": "#2DB476", "to": "#058349" }
+  },
+  "topbarCtaButton": {
+    "name": "Join Waitlist",
+    "url": "https://www.fabra.io"
+  },
+  "topbarLinks": [
+    {
+      "name": "Log In",
+      "url": "https://docs.fabra.io/login?redirect_uri=/reference/getting-started"
+    }
+  ],
+  "anchors": [
+    {
+      "name": "Contact Us",
+      "icon": "envelope",
+      "url": "mailto:nick@fabra.io"
+    }
+  ],
+  "navigation": [
+    {
+      "group": "Fabra",
+      "pages": ["reference/getting-started", "reference/authentication"]
+    },
+    {
+      "group": "Fabra API",
+      "pages": [
+        {
+          "group": "Sync",
+          "pages": ["reference/create_sync", "reference/get_syncs"]
+        },
+        {
+          "group": "Destination",
+          "pages": [
+            "reference/create_destination",
+            "reference/get_destinations"
+          ]
+        },
+        {
+          "group": "Source",
+          "pages": ["reference/create_source", "reference/get_sources"]
+        },
+        {
+          "group": "Object",
+          "pages": ["reference/create_object", "reference/get_objects"]
+        },
+        {
+          "group": "Connection",
+          "pages": [
+            "reference/get_namespaces",
+            "reference/get_tables",
+            "reference/get_schema"
+          ]
+        }
+      ]
+    }
+  ],
+  "footerSocials": {
+    "twitter": "https://twitter.com/usefabra",
+    "linkedin": "https://www.linkedin.com/company/fabra/",
+    "website": "https://www.fabra.io/"
+  }
+}

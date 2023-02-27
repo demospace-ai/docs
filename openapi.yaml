@@ -1,0 +1,698 @@
+openapi: 3.0.3
+info:
+  title: Fabra API
+  description: |-
+  contact:
+    email: nick@fabra.io
+  version: 0.1.0
+servers:
+  - url: https://app.fabra.io/api
+security:
+  - ApiKeyAuth: []
+tags:
+  - name: Sync
+    description: Operations on syncs
+  - name: Source
+    description: Operations on sources
+  - name: Destination
+    description: Operations on destinations
+  - name: Data stores
+    description: Operations on data stores
+paths:
+  /sync:
+    post:
+      tags:
+        - Sync
+      summary: Create a new sync
+      operationId: create_sync
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SyncInput"
+        required: true
+      responses:
+        "200":
+          description: Successfully created sync
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  sync:
+                    $ref: "#/components/schemas/Sync"
+        "401":
+          description: Unauthorized
+        "500":
+          description: Unexpected error
+  /syncs:
+    get:
+      tags:
+        - Sync
+      summary: Get all syncs
+      operationId: get_syncs
+      responses:
+        "200":
+          description: Successfully fetched syncs
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  syncs:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Sync"
+        "401":
+          description: Unauthorized
+        "500":
+          description: Unexpected error
+  /destination:
+    post:
+      tags:
+        - Destination
+      summary: Create a new destination
+      operationId: create_destination
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DestinationInput"
+        required: true
+      responses:
+        "200":
+          description: Successfully created destination
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  destination:
+                    $ref: "#/components/schemas/Destination"
+        "401":
+          description: Unauthorized
+        "500":
+          description: Unexpected error
+  /destinations:
+    get:
+      tags:
+        - Destination
+      summary: Get all destinations
+      operationId: get_destinations
+      responses:
+        "200":
+          description: Successfully fetched destinations
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  destinations:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Destination"
+        "401":
+          description: Unauthorized
+        "500":
+          description: Unexpected error
+  /source:
+    post:
+      tags:
+        - Source
+      summary: Create a new source
+      operationId: create_source
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SourceInput"
+        required: true
+      responses:
+        "200":
+          description: Successfully created source
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  source:
+                    $ref: "#/components/schemas/Source"
+        "401":
+          description: Unauthorized
+        "500":
+          description: Unexpected error
+  /sources:
+    get:
+      tags:
+        - Source
+      summary: Get all sources
+      operationId: get_sources
+      responses:
+        "200":
+          description: Successfully fetched sources
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  sources:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Source"
+        "401":
+          description: Unauthorized
+        "500":
+          description: Unexpected error
+  /object:
+    post:
+      tags:
+        - Object
+      summary: Create a new object
+      operationId: create_object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ObjectInput"
+        required: true
+      responses:
+        "200":
+          description: Successfully created object
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  object:
+                    $ref: "#/components/schemas/Object"
+        "401":
+          description: Unauthorized
+        "500":
+          description: Unexpected error
+  /objects:
+    get:
+      tags:
+        - Object
+      summary: Get all objects
+      operationId: get_objects
+      responses:
+        "200":
+          description: Successfully fetched objects
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  objects:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Object"
+        "401":
+          description: Unauthorized
+        "500":
+          description: Unexpected error
+  /connection/namespaces:
+    get:
+      tags:
+        - Connection
+      summary: Get all namespaces
+      operationId: get_namespaces
+      parameters:
+        - in: query
+          name: connectionID
+          schema:
+            type: integer
+          required: true
+      responses:
+        "200":
+          description: Successfully fetched namespaces
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  namespaces:
+                    type: array
+                    items:
+                      type: string
+                    example: ["marketing", "analytics", "finance"]
+        "401":
+          description: Unauthorized
+        "500":
+          description: Unexpected error
+  /connection/tables:
+    get:
+      tags:
+        - Connection
+      summary: Get all tables
+      operationId: get_tables
+      parameters:
+        - in: query
+          name: connectionID
+          schema:
+            type: integer
+          required: true
+        - in: query
+          name: namespace
+          schema:
+            type: string
+          required: true
+      responses:
+        "200":
+          description: Successfully fetched tables
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  tables:
+                    type: array
+                    items:
+                      type: string
+                    example: ["events", "users", "companies"]
+        "401":
+          description: Unauthorized
+        "500":
+          description: Unexpected error
+  /connection/schema:
+    get:
+      tags:
+        - Connection
+      summary: Get schema for table
+      operationId: get_schema
+      parameters:
+        - in: query
+          name: connectionID
+          schema:
+            type: integer
+          required: true
+        - in: query
+          name: namespace
+          schema:
+            type: string
+          required: true
+        - in: query
+          name: tableName
+          schema:
+            type: string
+          required: true
+      responses:
+        "200":
+          description: Successfully fetched schema
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  schema:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/ColumnSchema"
+                    example:
+                      [
+                        { "name": "id", "type": "string" },
+                        { "name": "event_name", "type": "string" },
+                        { "name": "created_at", "type": "timestamp" },
+                        { "name": "updated_at", "type": "timestamp" },
+                      ]
+        "401":
+          description: Unauthorized
+        "500":
+          description: Unexpected error
+components:
+  schemas:
+    Sync:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 10
+        display_name:
+          type: string
+          example: Event Sync
+        source_id:
+          type: integer
+          example: 1
+        destination_id:
+          type: integer
+          example: 2
+        object_id:
+          type: integer
+          example: 3
+        namespace:
+          type: string
+          example: end_customer_bigquery_dataset
+        table_name:
+          type: string
+          example: end_customer_events
+        custom_join:
+          type: string
+          example:
+            select * from events join additional_properties on events.id =
+            additional_properties.event_id;
+        cursor_field:
+          type: string
+          example: updated_at
+        primary_key:
+          type: string
+          example: event_id
+        frequency:
+          type: integer
+        frequency_units:
+          $ref: "#/components/schemas/FrequencyUnits"
+        field_mappings:
+          type: array
+          example:
+            [
+              {
+                source_field_name: "event_name",
+                destination_field_name: "event",
+              },
+            ]
+    SyncInput:
+      type: object
+      required:
+        - display_name
+        - source_id
+        - destination_id
+        - object_id
+        - frequency
+        - frequency_units
+        - field_mappings
+      properties:
+        display_name:
+          type: string
+          example: Event Sync
+        source_id:
+          type: integer
+          example: 1
+        destination_id:
+          type: integer
+          example: 2
+        object_id:
+          type: integer
+          example: 3
+        namespace:
+          type: string
+          example: end_customer_bigquery_dataset
+        table_name:
+          type: string
+          example: end_customer_events
+        custom_join:
+          type: string
+          example:
+            select * from events join additional_properties on events.id =
+            additional_properties.event_id;
+        cursor_field:
+          type: string
+          example: updated_at
+        primary_key:
+          type: string
+          example: event_id
+        frequency:
+          type: integer
+          example: 30
+        frequency_units:
+          $ref: "#/components/schemas/FrequencyUnits"
+          example: minutes
+        field_mappings:
+          type: array
+          items:
+            $ref: "#/components/schemas/FieldMapping"
+          example:
+            [
+              {
+                source_field_name: "event_name",
+                destination_field_name: "event",
+              },
+            ]
+    FrequencyUnits:
+      type: string
+      enum:
+        - minutes
+        - hours
+        - days
+        - weeks
+    FieldMapping:
+      type: object
+      properties:
+        source_field_name:
+          type: string
+          example: event_name
+        destination_field_name:
+          type: string
+          example: event
+    ColumnSchema:
+      type: object
+      properties:
+        name:
+          type: string
+          example: event_name
+        type:
+          $ref: "#/components/schemas/FieldType"
+    Source:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 10
+        display_name:
+          type: string
+          example: Frontend Events
+        end_customer_id:
+          type: integer
+          example: 123
+        connection:
+          $ref: "#/components/schemas/Connection"
+    SourceInput:
+      type: object
+      required:
+        - display_name
+        - end_customer_id
+        - connection_type
+      properties:
+        display_name:
+          type: string
+          example: Frontend Events
+        end_customer_id:
+          type: integer
+          example: 123
+        connection_type:
+          $ref: "#/components/schemas/ConnectionType"
+        bigquery_config:
+          $ref: "#/components/schemas/BigQueryConfig"
+        snowflake_config:
+          $ref: "#/components/schemas/SnowflakeConfig"
+        redshift_config:
+          $ref: "#/components/schemas/RedshiftConfig"
+        mongodb_config:
+          $ref: "#/components/schemas/MongoDbConfig"
+    Destination:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 10
+        display_name:
+          type: string
+          example: BigQuery
+        connection:
+          $ref: "#/components/schemas/Connection"
+    DestinationInput:
+      type: object
+      required:
+        - display_name
+        - connection_type
+      properties:
+        display_name:
+          type: string
+          example: BigQuery
+        connection_type:
+          $ref: "#/components/schemas/ConnectionType"
+        bigquery_config:
+          $ref: "#/components/schemas/BigQueryConfig"
+        snowflake_config:
+          $ref: "#/components/schemas/SnowflakeConfig"
+        redshift_config:
+          $ref: "#/components/schemas/RedshiftConfig"
+        mongodb_config:
+          $ref: "#/components/schemas/MongoDbConfig"
+    Object:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 10
+        display_name:
+          type: string
+          example: BigQuery
+        destination_id:
+          type: integer
+          example: 2
+        namespace:
+          type: string
+          example: bigquery_dataset
+        table_name:
+          type: string
+          example: events
+        customer_id_column:
+          type: string
+          example: end_customer_id
+          description:
+            This is where Fabra will insert the End Customer ID specified in the
+            sync configuration
+        object_fields:
+          type: array
+          items:
+            $ref: "#/components/schemas/ObjectField"
+    ObjectInput:
+      type: object
+      required:
+        - display_name
+        - destination_id
+        - namespace
+        - table_name
+        - customer_id_column
+      properties:
+        display_name:
+          type: string
+          example: BigQuery
+        destination_id:
+          type: integer
+          example: 2
+        namespace:
+          type: string
+          example: bigquery_dataset
+        table_name:
+          type: string
+          example: events
+        customer_id_column:
+          type: string
+          example: end_customer_id
+          description:
+            This is where Fabra will insert the End Customer ID specified when
+            creating a source.
+        object_fields:
+          type: array
+          items:
+            $ref: "#/components/schemas/ObjectField"
+    ObjectField:
+      type: object
+      properties:
+        name:
+          type: string
+          example: event_name
+        type:
+          $ref: "#/components/schemas/FieldType"
+    FieldType:
+      type: string
+      enum:
+        - string
+        - integer
+        - timestamp
+        - json
+        - boolean
+    Connection:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        connection_type:
+          $ref: "#/components/schemas/ConnectionType"
+    ConnectionType:
+      type: string
+      enum:
+        - snowflake
+        - bigquery
+        - redshift
+        - mongodb
+        - webhook
+    BigQueryConfig:
+      type: object
+      required:
+        - properties
+        - location
+      properties:
+        credentials:
+          type: string
+          example: Paste JSON from GCP
+        location:
+          type: string
+          example: us-west1
+    SnowflakeConfig:
+      type: object
+      required:
+        - username
+        - password
+        - warehouse_name
+        - database_name
+        - host
+        - role
+      properties:
+        username:
+          type: string
+          example: jane_doe
+        password:
+          type: string
+          example: securePassword123
+        warehouse_name:
+          type: string
+          example: your_warehouse
+        database_name:
+          type: string
+          example: your_database
+        host:
+          type: string
+          example: abc123.us-east4.gcp.snowflakecomputing.com
+        role:
+          type: string
+          example: your_role
+    RedshiftConfig:
+      type: object
+      required:
+        - username
+        - password
+        - database_name
+        - host
+        - port
+      properties:
+        username:
+          type: string
+          example: jane_doe
+        password:
+          type: string
+          example: securePassword123
+        database_name:
+          type: string
+          example: your_database
+        host:
+          type: string
+          example: examplecluster.12345.us-west-1.redshift.amazonaws.com
+        port:
+          type: string
+          example: 5432
+    MongoDbConfig:
+      type: object
+      required:
+        - username
+        - password
+        - host
+      properties:
+        username:
+          type: string
+          example: jane_doe
+        password:
+          type: string
+          example: securePassword123
+        host:
+          type: string
+          example: examplecluster.abc123.mongodb.net
+        connection_options:
+          type: string
+          example: retryWrites=true&w=majority
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      name: X-API-Key
+      in: header
