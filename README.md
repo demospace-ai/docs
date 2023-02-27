@@ -1,6 +1,6 @@
 # Fabra Documentation
 
-The content and configuration powering the documentation available at []()
+The content and configuration powering the documentation available at [docs.fabra.io](https://docs.fabra.io)
 
 ### 👩‍💻 Development
 
