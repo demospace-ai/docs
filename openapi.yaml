@@ -28,9 +28,7 @@ paths:
         content:
           application/json:
             schema:
-              end_customer_id:
-                type: string
-                example: 123
+              $ref: '#/components/schemas/CreateLinkTokenRequest'
         required: true
       responses:
         '200':
@@ -38,9 +36,7 @@ paths:
           content:
             application/json:
               schema:
-                link_token:
-                  type: string
-                  example: abc123def
+                $ref: '#/components/schemas/CreateLinkTokenResponse'
         '401':
           description: Unauthorized
         '500':
@@ -341,6 +337,20 @@ paths:
           description: Unexpected error
 components:
   schemas:
+    CreateLinkTokenRequest:
+      type: object
+      required:
+       - end_customer_id
+      properties:
+        end_customer_id:
+          type: string
+          example: 123
+    CreateLinkTokenResponse:
+      type: object
+      properties:
+        link_token:
+          type: string
+          example: abc123def
     Sync:
       type: object
       properties:
@@ -380,6 +390,8 @@ components:
           $ref: '#/components/schemas/FrequencyUnits'
         field_mappings:
           type: array
+          items:
+            $ref: '#/components/schemas/FieldMapping'
           example: [{source_field_name: "event_name", destination_field_name: "event"}]
     SyncInput:
       type: object
