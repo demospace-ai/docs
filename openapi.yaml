@@ -28,7 +28,9 @@ paths:
         content:
           application/json:
             schema:
-              end_customer_id: string
+              end_customer_id:
+                type: string
+                example: 123
         required: true
       responses:
         '200':
@@ -36,7 +38,9 @@ paths:
           content:
             application/json:
               schema:
-                link_token: string
+                link_token:
+                  type: string
+                  example: abc123def
         '401':
           description: Unauthorized
         '500':
