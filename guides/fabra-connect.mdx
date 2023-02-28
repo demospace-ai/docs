@@ -1,0 +1,28 @@
+---
+title: "Fabra Connect"
+openapi: ""
+---
+
+Fabra Connect is a UI component that your users will interact with in order to setup their data sourec
+connections and start syncing data into your system.
+
+To get started with Fabra Connect, follow the steps below.
+
+## High-Level Overview
+Here are the steps to add Fabra Connect into your application:
+1. Create a `link_token` by calling the [Create Link Token endpoint](https://docs.fabra.io/api-reference/create_link_token)
+1. Use the **Fabra Connect SDK** to initialize Fabra Connect
+1. Pass the `link_token` to Fabra Connect using the **Fabra Connnect SDK**
+
+## Create a Link Token
+In your backend, set up a `POST` request to initialize a Connect session and get a `link_token` from this URL:
+```
+https://api.fabra.io/api/link_token
+```
+
+Make sure to include the `end_customer_id`, which identifies the customer in *your own system*. When Fabra performs
+a sync for this customer, it will include this ID in every row that it loads into your system. See more details
+about this API [here](https://docs.fabra.io/api-reference/create_link_token).
+
+You'll want to create an endpoint in your backend to perform this creation on demand. Here's an example of how that
+would look in a Node backend:

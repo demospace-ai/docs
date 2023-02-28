@@ -5,15 +5,20 @@
     "dark": "/logo/dark.svg"
   },
   "api": {
-    "baseUrl": "https://app.fabra.io"
+    "baseUrl": "https://app.fabra.io/api"
   },
-  "versions": ["v1.0"],
+  "versions": [
+    "v1.0"
+  ],
   "favicon": "/favicon.png",
   "colors": {
     "primary": "#2DB476",
     "light": "#66E3AA",
     "dark": "#058349",
-    "anchors": { "from": "#2DB476", "to": "#058349" }
+    "anchors": {
+      "from": "#2DB476",
+      "to": "#058349"
+    }
   },
   "topbarCtaButton": {
     "name": "Join Waitlist",
@@ -22,7 +27,7 @@
   "topbarLinks": [
     {
       "name": "Log In",
-      "url": "https://docs.fabra.io/login?redirect_uri=/reference/getting-started"
+      "url": "https://docs.fabra.io/login?redirect-uri=/reference/getting-started"
     }
   ],
   "anchors": [
@@ -34,37 +39,61 @@
   ],
   "navigation": [
     {
-      "group": "Fabra",
-      "pages": ["reference/getting-started", "reference/authentication"]
+      "group": "Overview",
+      "pages": [
+        "overview/getting-started",
+        "overview/authentication"
+      ]
     },
     {
-      "group": "Fabra API",
+      "group": "Guides",
+      "pages": [
+        "guides/fabra-connect"
+      ]
+    },
+    {
+      "group": "API Reference",
       "pages": [
         {
+          "group": "Link Token",
+          "pages": [
+            "api-reference/create-link-token"
+          ]
+        },
+        {
           "group": "Sync",
-          "pages": ["reference/create_sync", "reference/get_syncs"]
+          "pages": [
+            "api-reference/create-sync",
+            "api-reference/get-syncs"
+          ]
         },
         {
           "group": "Destination",
           "pages": [
-            "reference/create_destination",
-            "reference/get_destinations"
+            "api-reference/create-destination",
+            "api-reference/get-destinations"
           ]
         },
         {
           "group": "Source",
-          "pages": ["reference/create_source", "reference/get_sources"]
+          "pages": [
+            "api-reference/create-source",
+            "api-reference/get-sources"
+          ]
         },
         {
           "group": "Object",
-          "pages": ["reference/create_object", "reference/get_objects"]
+          "pages": [
+            "api-reference/create-object",
+            "api-reference/get-objects"
+          ]
         },
         {
           "group": "Connection",
           "pages": [
-            "reference/get_namespaces",
-            "reference/get_tables",
-            "reference/get_schema"
+            "api-reference/get-namespaces",
+            "api-reference/get-tables",
+            "api-reference/get-schema"
           ]
         }
       ]
