@@ -1,9 +1,6 @@
 openapi: 3.0.3
 info:
   title: Fabra API
-  description: |-
-  contact:
-    email: nick@fabra.io
   version: 0.1.0
 servers:
   - url: https://app.fabra.io/api

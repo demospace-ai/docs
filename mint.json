@@ -7,9 +7,6 @@
   "api": {
     "baseUrl": "https://app.fabra.io/api"
   },
-  "versions": [
-    "v1.0"
-  ],
   "favicon": "/favicon.png",
   "colors": {
     "primary": "#2DB476",
@@ -20,21 +17,11 @@
       "to": "#058349"
     }
   },
-  "topbarCtaButton": {
-    "name": "Join Waitlist",
-    "url": "https://www.fabra.io"
-  },
-  "topbarLinks": [
-    {
-      "name": "Log In",
-      "url": "https://docs.fabra.io/login?redirect-uri=/reference/getting-started"
-    }
-  ],
   "anchors": [
     {
       "name": "Contact Us",
       "icon": "envelope",
-      "url": "mailto:nick@fabra.io"
+      "url": "mailto:founders@fabra.io"
     }
   ],
   "navigation": [
