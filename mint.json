@@ -46,7 +46,8 @@
         "concepts/destinations",
         "concepts/objects",
         "concepts/tables",
-        "concepts/namespaces"
+        "concepts/namespaces",
+        "concepts/field-mapping"
       ]
     },
     {
