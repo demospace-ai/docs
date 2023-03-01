@@ -28,14 +28,25 @@
     {
       "group": "Overview",
       "pages": [
-        "overview/getting-started",
-        "overview/authentication"
+        "overview/introduction",
+        "overview/quickstart"
       ]
     },
     {
       "group": "Guides",
       "pages": [
         "guides/fabra-connect"
+      ]
+    },
+    {
+      "group": "Concepts",
+      "pages": [
+        "concepts/authentication",
+        "concepts/sources",
+        "concepts/destinations",
+        "concepts/objects",
+        "concepts/tables",
+        "concepts/namespaces"
       ]
     },
     {
