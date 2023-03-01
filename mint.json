@@ -5,7 +5,7 @@
     "dark": "/logo/dark.svg"
   },
   "api": {
-    "baseUrl": "https://app.fabra.io/api"
+    "baseUrl": "https://api.fabra.io"
   },
   "favicon": "/favicon.png",
   "colors": {

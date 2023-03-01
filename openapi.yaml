@@ -3,7 +3,7 @@ info:
   title: Fabra API
   version: 0.1.0
 servers:
-  - url: https://app.fabra.io/api
+  - url: https://api.fabra.io
 security:
   - ApiKeyAuth: []
 tags:
