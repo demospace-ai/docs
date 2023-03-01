@@ -28,13 +28,13 @@
     {
       "group": "Overview",
       "pages": [
-        "overview/introduction",
-        "overview/quickstart"
+        "overview/introduction"
       ]
     },
     {
       "group": "Guides",
       "pages": [
+        "guides/quickstart",
         "guides/fabra-connect"
       ]
     },
