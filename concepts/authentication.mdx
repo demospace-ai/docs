@@ -10,12 +10,3 @@ key in the **API Keys** tab.
 <Frame>
   <img style={{"box-shadow": "rgb(99 99 99 / 30%) 0 0 4px", "border-radius": "8px"}} src="/images/api-key-location.png" alt="API key location" />
 </Frame>
-
-## Link Token / Access Token Exchange
-When interacting with customer-created sources, you will need to authenticate using an access token. The following process ensures your customer credentials are handled in a safe manner.
-| Step |    Action
-| -----| -----------------------------------------------------
-| `1`  | Your server calls `POST /link/token` to get a `linkToken`. The `linkToken` is a temporary token used by Fabra Connect to let customers interact with Fabra.
-| `2`  | Pass the `linkToken` to Fabra Connect. In the `sourceCreated` handler, Fabra will return a temporary `publicToken`. The `sourceCreated` handler is called after a customer successfully creates a source.
-| `3`  | Call `/link/exchange` with the `publicToken` and exchange it for a permanent `accessToken`.
-| `4`  | Store the `accessToken` in a secure location (encrypted if possible). You will use it with your `apiKey` to interact with the source.
