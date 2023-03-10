@@ -21,3 +21,27 @@ You can also use Fabra's API to create Objects instead. Check out our
 <Frame>
     <img style={{"box-shadow": "rgb(99 99 99 / 30%) 0 0 4px", "border-radius": "8px"}} src="/images/destinations.png" alt="destinations" />
 </Frame>
+
+## Webhook Destinations
+
+You can configure Fabra to send your customer's data to your own **custom webhook** instead of loading data directly into a data warehouse.
+To do so, Fabra will make a `POST` request to the webhook URL you enter when setting up the webhook destination with the following
+payload structure:
+```
+{
+    "end_customer_id": 1,
+    "object_webhook_id": 2, // configured when creating the object in Fabra
+    "data": [
+        {
+            "object_field_1": "abc",
+            "object_field_2": 1200,
+            "object_field_3": ["list", "of", "anything"],
+            "object_field_3": {"key": "value"},
+            ...
+        },
+    ]
+}
+```
+
+The `data` field will be limited to a maximum length of 10,000 records per-request. For updates exceeding this limit (including the initial sync),
+Fabra will make multiple calls to your webhook.
