@@ -18,7 +18,7 @@ click **New Destination** in the top right of the page.
 ## 3. Create an Object
 In Fabra's [Admin Panel](https://app.fabra.io), navigate to the `Objects` tab on the side navigation bar, and
 click **New Object** in the top right of the page. Choose one of the Destinations you have configured from [Step 1](#1-setup-a-destination)
-and select the [namespace](https://docs.fabra.io/concepts/namespaces) and [table](https://docs.fabra.io/concepts/tables) where Fabra should
+and select the [namespace](/concepts/namespaces) and [table](/concepts/tables) where Fabra should
 load data into for this object.
 
 Fabra will pull the existing columns from your selected table, and you can then use those to define the fields you expect from your
@@ -33,7 +33,7 @@ Fabra Connect is a UI component that your users will interact with in order to s
 into your system. Getting setup is only two easy steps.
 <h3 style={{"marginTop": "24px"}}>Create a Link Token</h3>
 In your backend, set up a `POST` request to initialize a Connect session and get a `link_token` from Fabra's 
-[Create Link Token endpoint](https://docs.fabra.io/api-reference/create-link-token).
+[Create Link Token endpoint](/api-reference/create-link-token).
 
 Make sure to include the `end_customer_id`, which identifies the customer in *your own system*. When Fabra performs
 a sync for this customer, it will include this ID in every row that it loads into your system.
@@ -43,7 +43,7 @@ would look in a Node backend:
 
 ```javascript
 app.post("/link-token", async (req, res) => {
-  const response = await fetch("https://app.fabra.io/api/link_token", {
+  const response = await fetch("https://api.fabra.io/link_token", {
     method: "POST",
     headers: {
       "X_API_TOKEN": process.env.FABRA_API_TOKEN,
