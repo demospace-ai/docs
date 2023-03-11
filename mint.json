@@ -44,6 +44,7 @@
         "concepts/authentication",
         "concepts/sources",
         "concepts/destinations",
+        "concepts/webhooks",
         "concepts/objects",
         "concepts/tables",
         "concepts/namespaces",
