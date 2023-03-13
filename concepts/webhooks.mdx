@@ -8,6 +8,8 @@ description: "Learn how to use webhooks to receive data from Fabra."
 You can configure Fabra to send your customer's data to your own **webhook** instead of loading data directly into a data warehouse.
 To do so, Fabra will make a `POST` request to the webhook URL you enter when setting up the webhook destination with the following
 payload structure:
+<Note>Depending on your object configuration, Fabra will either send every record (`full_overwrite`) or only the records that have
+been added or changed (`incremental_append`).</Note>
 ```json
 {
     "end_customer_id": 1,
@@ -18,6 +20,7 @@ payload structure:
             "object_field_1": "abc",
             "object_field_2": 1200,
             "object_field_3": ["list", "of", "anything"],
+            // for JSON object fields, your customers can send any arbitrary key/value pairs
             "object_field_3": {"key": "value"},
             ...
         },
