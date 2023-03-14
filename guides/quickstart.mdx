@@ -68,7 +68,7 @@ import React from "react";
 import { useFabraConnect } from "@fabra/react-fabra-connect";
 
 const App = () => {
-  const { open } = useFabraConnect();
+  const { open } = useFabraConnect(); // Can pass optional `customTheme` object here
   const linkToken = fetchLinkToken(); // Use the API you created in Step 1 here
 
   return (
