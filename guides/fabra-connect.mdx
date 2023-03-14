@@ -60,3 +60,21 @@ const App = () => {
   );
 };
 ```
+
+## Styling 
+
+Fabra currently supports customizing the color used in the Fabra Connect component. To do so, just pass in an object when
+calling `useFabraConnect`:
+```javascript
+const { open } = useFabraConnect({
+  customTheme:{
+    colors: {
+      primary: {
+        base: #805AD5, // Primary color for buttons, graphics, etc.
+        hover: #553C9A, // Hover color for buttons and links
+        text: #FFFFFF, // The font color on top of the primary color
+      }
+    }
+  }
+});
+```
