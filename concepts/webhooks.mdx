@@ -15,10 +15,12 @@ payload structure:
     "data": [
         {
             // these fields are configured when creating the object
-            "object_field_1": "abc",
-            "object_field_2": 1200,
-            "object_field_3": ["list", "of", "anything"],
-            "object_field_3": {"key": "value"},
+            "id": 123,
+            "event": "Login",
+            "user_id": 456,
+            "timestamp": "2022-10-23 12:21:01 UTC",
+            "tags": ["tag1", "tag2", "tag3"],
+            "additional_data": {"browser": "chrome"},
             ...
         },
         ...
@@ -28,6 +30,8 @@ payload structure:
 
 The `data` field will be limited to a maximum length of 10,000 records per-request. For updates exceeding this limit (including the initial sync),
 Fabra will make multiple calls to your webhook.
+
+<Note>Any missing or null fields from the source data will simply be omitted from the record.</Note>
 
 ## JSON Fields
 
