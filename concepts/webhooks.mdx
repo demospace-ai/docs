@@ -32,7 +32,9 @@ payload structure:
 The `data` field will be limited to a maximum length of 1,000 records per-request by default. For updates exceeding this limit (including the
 initial sync), Fabra will make multiple calls to your webhook at a default rate limit of 100 requests per second.
 
-<Note>Any missing or null fields from the source data will simply be omitted from the record if the field is nullable.</Note>
+<Note>
+Any missing or null fields in the source data will be omitted from the record if your configured object field is optional.
+</Note>
 
 ## JSON Fields
 
