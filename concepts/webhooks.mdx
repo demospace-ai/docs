@@ -28,8 +28,8 @@ payload structure:
 }
 ```
 
-The `data` field will be limited to a maximum length of 10,000 records per-request. For updates exceeding this limit (including the initial sync),
-Fabra will make multiple calls to your webhook.
+The `data` field will be limited to a maximum length of 1,000 records per-request by default. For updates exceeding this limit (including the
+initial sync), Fabra will make multiple calls to your webhook at a default rate limit of 100 requests per second.
 
 <Note>Any missing or null fields from the source data will simply be omitted from the record.</Note>
 
@@ -43,3 +43,12 @@ of arbitrary key/value pairs to this object, and they will be collected into a s
 For webhooks, Fabra supports two different sync modes:
 1. `full_overwrite`: Fabra will send every record on each sync
 2. `incremental_append`: Fabra will only send the records that have been added or changed
+
+## Validating Webhook Signatures
+
+When sending a request to your webhook endpoint, Fabra will add a `X-FABRA-SIGNATURE` header. You should use this to validate that the request actually
+came from Fabra. This signature can be computed using your "Webhook Signing Key" found in the Fabra Admin website under `Destinations > Your Webhook`.
+
+To verify the webhook request, calculate a HMAC-SHA256 hash of the webhook payload (the body) using your Webhook Signing Key. Then ensure that this hash
+matches the signature found in the header exactly. As an extra verification step, ensure that the difference between the `fabra_timestamp` portion of
+the payload and the current time is within your tolerance.
