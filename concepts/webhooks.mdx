@@ -33,7 +33,8 @@ The `data` field will be limited to a maximum length of 1,000 records per-reques
 initial sync), Fabra will make multiple calls to your webhook at a default rate limit of 100 requests per second.
 
 <Note>
-Any missing or null fields in the source data will be omitted from the record if your configured object field is optional.
+Any missing or null fields in the source data will be omitted from the record if you've configured the object field to be optional. Otherwise,
+Fabra will throw and error and fail the sync.
 </Note>
 
 ## JSON Fields
