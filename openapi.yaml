@@ -342,7 +342,7 @@ components:
       properties:
         end_customer_id:
           type: string
-          example: 123
+          example: "abcd-1234-efgh-5678"
     CreateLinkTokenResponse:
       type: object
       properties:
@@ -482,8 +482,8 @@ components:
           type: string
           example: Frontend Events
         end_customer_id:
-          type: integer
-          example: 123
+          type: string
+          example: "abcd-1234-efgh-5678"
         connection:
           $ref: '#/components/schemas/Connection'
     SourceInput:
@@ -497,8 +497,8 @@ components:
           type: string
           example: Frontend Events
         end_customer_id:
-          type: integer
-          example: 123
+          type: string
+          example: "abcd-1234-efgh-5678"
         connection_type:
           $ref: '#/components/schemas/ConnectionType'
         bigquery_config:

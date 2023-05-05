@@ -48,6 +48,7 @@ app.post("/link-token", async (req, res) => {
     headers: {
       "X_API_TOKEN": process.env.FABRA_API_TOKEN,
     },
+    body: JSON.stringify({end_customer_id: "abcd-1234-efgh-5678})
   });
 
   const body = await response.json();
