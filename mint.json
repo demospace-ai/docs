@@ -7,7 +7,7 @@
   "api": {
     "baseUrl": "https://api.fabra.io"
   },
-  "favicon": "/favicon.png",
+  "favicon": "/favicon.ico",
   "colors": {
     "primary": "#2DB476",
     "light": "#66E3AA",
