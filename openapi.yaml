@@ -577,6 +577,8 @@ components:
         - destination_id
         - namespace
         - table_name
+        - frequency
+        - frequency_units
         - end_customer_id_field
       properties:
         display_name:
@@ -591,6 +593,18 @@ components:
         table_name:
           type: string
           example: events
+        cursor_field:
+          type: string
+          example: updated_at
+        primary_key:
+          type: string
+          example: event_id
+        frequency:
+          type: integer
+          example: 30
+        frequency_units:
+          $ref: '#/components/schemas/FrequencyUnits'
+          example: minutes
         end_customer_id_field:
           type: string
           example: end_customer_id
