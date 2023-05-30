@@ -402,8 +402,6 @@ components:
         - destination_id
         - object_id
         - end_customer_id
-        - frequency
-        - frequency_units
         - field_mappings
       properties:
         display_name:
