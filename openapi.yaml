@@ -401,6 +401,7 @@ components:
         - source_id
         - destination_id
         - object_id
+        - end_customer_id
         - frequency
         - frequency_units
         - field_mappings
@@ -417,6 +418,9 @@ components:
         object_id:
           type: integer
           example: 3
+        end_customer_id:
+          type: string
+          example: abc123
         namespace:
           type: string
           example: end_customer_bigquery_dataset
