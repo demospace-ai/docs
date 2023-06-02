@@ -1,0 +1,56 @@
+---
+title: "Snowflake"
+description: "Learn how to connect to a Snowflake data source."
+---
+
+## Before You Start 
+
+Make sure that you have already set up a dedicated `User` and `Role` for your Desintation Provider to access your Snowflake data warehouse.
+
+### Example User/Role Creation Template
+```sql
+CREATE ROLE IF NOT EXISTS <your_role>;
+CREATE USER IF NOT EXISTS <your_user> PASSWORD=********;
+
+GRANT ROLE <your_role> TO ROLE SYSADMIN;
+GRANT USAGE ON WAREHOUSE <your_warehouse> TO ROLE <your_role>;
+GRANT ROLE <your_role> TO USER <your_user>;
+
+GRANT USAGE ON DATABASE <your_db> TO ROLE <your_role>;
+GRANT USAGE ON ALL SCHEMAS IN DATABASE <your_db> TO ROLE <your_role>;
+GRANT SELECT ON ALL TABLES IN DATABASE <your_db> TO ROLE <your_role>;
+GRANT SELECT ON FUTURE TABLES IN DATABASE <your_db> TO ROLE <your_role>;
+GRANT SELECT ON ALL VIEWS IN DATABASE <your_db> TO ROLE <your_role>;
+```
+
+## How do I Set Up Snowflake as a Source?
+
+### Connect a Source
+
+1. Log in to your Destination Provider (e.g., *Custify*).
+2. Navigate to integrations. 
+3. Click **New Sync**.
+4. Choose **Snowflake**.
+5. Input the following details:
+    - **Display Name**: A descriptive, human-readable name for this data source
+    - **Username**: This can be your personal username or you can create a dedicated user for syncing
+    - **Password**: The password for your syncing user
+    - **Database Name**: The name of the Snowflake database to sync from
+    - **Warehouse Name**: The name of the warehouse used to run syncs in Snowflake
+    - **Role**: The role name used to run syncs
+    - **Host**: Your [Snowflake url](https://docs.snowflake.com/en/user-guide/admin-account-identifier) (e.g., `abc123.us-east1.gcp.snowflakecomputing.com`) 
+6. Click **Test** to validate the connection.
+7. Click **Continue**.
+
+### Choose a Syncing Data Model
+
+1. Select a conversion object for your pulled data. These are pre-defined by your Destination Provider to match the shape of their data.
+2. Select a table to pull data from by providing the following information:
+    - **Namespace**: The dataset ID within your poject (e.g., `my-namespace` in `project-name.my-namespace`)
+    - **Table**: The name of the table in your namespace that you want to pull data from. The columns in this table are used to map to the conversion object.
+3. Select **Preview** to see a sample of your table's imported data.
+4. Click **Continue**.
+
+### Map Fields
+
+For each field in your imported table, map it to an equivalent from the chosen Syncing Data Model. 

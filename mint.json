@@ -52,6 +52,16 @@
       ]
     },
     {
+      "group": "Sources",
+      "pages":[
+        "sources/aws-redshift",
+        "sources/azure-synapse",
+        "sources/bigquery",
+        "sources/mongodb",
+        "sources/snowflake"
+      ]
+    },
+    {
       "group": "API Reference",
       "pages": [
         {

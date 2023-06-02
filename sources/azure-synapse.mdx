@@ -1,0 +1,51 @@
+---
+title: "Azure Synapse"
+description: "Learn how to connect to an Aure Synapse data source."
+---
+
+## Before You Start 
+
+Make sure that you have already set up a dedicated user for your Desintation Provider to access your Azure Synapse  database. 
+
+### Example User/Role Creation Template
+
+```sql 
+CREATE LOGIN <your_login> WITH PASSWORD = '********';
+CREATE USER <your_user FOR LOGIN <your_login>;  
+
+-- Add the user to a database role
+ALTER ROLE [db_datareader] ADD MEMBER <your_user>;
+
+-- or grant access to a specific table
+GRANT SELECT ON <your_table> TO <your_user>;  
+```
+
+## How do I Set Up BigQuery as a Source?
+
+### Connect a Source
+
+1. Log in to your Destination Provider (e.g., *Custify*).
+2. Navigate to integrations. 
+3. Click **New Sync**.
+4. Choose **Azure Synapse**.
+5. Input the following details:
+    - **Display Name**: A descriptive, human-readable name for this data source
+    - **Username**: This can be your personal username or you can create a dedicated user for syncing
+    - **Password**: The password for your syncing user
+    - **Database Name**: The name of the Redshift database to sync from
+    - **Endpoint**: The endpoint URL used to sync
+6. Click **Test** to validate the connection.
+7. Click **Continue**.
+
+### Choose a Syncing Data Model
+
+1. Select a conversion object for your pulled data. These are pre-defined by your Destination Provider to match the shape of their data.
+2. Select a table to pull data from by providing the following information:
+    - **Namespace**: The dataset ID within your poject (e.g., `my-namespace` in `project-name.my-namespace`)
+    - **Table**: The name of the table in your namespace that you want to pull data from. The columns in this table are used to map to the conversion object.
+3. Select **Preview** to see a sample of your table's imported data.
+4. Click **Continue**.
+
+### Map Fields
+
+For each field in your imported table, map it to an equivalent from the chosen Syncing Data Model. 
