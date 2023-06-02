@@ -3,11 +3,12 @@ title: "Snowflake"
 description: "Learn how to connect to a Snowflake data source."
 ---
 
-## Before You Start 
+## Before You Start
 
 Make sure that you have already set up a dedicated `User` and `Role` for our syncing service to access your Snowflake data warehouse.
 
 ### Example User/Role Creation Template
+
 ```sql
 CREATE ROLE IF NOT EXISTS <your_role>;
 CREATE USER IF NOT EXISTS <your_user> PASSWORD=********;
@@ -32,13 +33,13 @@ GRANT SELECT ON ALL VIEWS IN DATABASE <your_db> TO ROLE <your_role>;
 3. Click **New Sync**.
 4. Choose **Snowflake**.
 5. Input the following details:
-    a. **Display Name**: A descriptive, human-readable name for this data source
-    a. **Username**: This can be your personal username or you can create a dedicated user for syncing
-    a. **Password**: The password for your syncing user
-    a. **Database Name**: The name of the Snowflake database to sync from
-    a. **Warehouse Name**: The name of the warehouse used to run syncs in Snowflake
-    a. **Role**: The role name used to run syncs
-    a. **Host**: Your [Snowflake url](https://docs.snowflake.com/en/user-guide/admin-account-identifier) (e.g., `abc123.us-east1.gcp.snowflakecomputing.com`) 
+   1. **Display Name**: A descriptive, human-readable name for this data source
+   1. **Username**: This can be your personal username or you can create a dedicated user for syncing
+   1. **Password**: The password for your syncing user
+   1. **Database Name**: The name of the Snowflake database to sync from
+   1. **Warehouse Name**: The name of the warehouse used to run syncs in Snowflake
+   1. **Role**: The role name used to run syncs
+   1. **Host**: Your [Snowflake url](https://docs.snowflake.com/en/user-guide/admin-account-identifier) (e.g., `abc123.us-east1.gcp.snowflakecomputing.com`)
 6. Click **Test** to validate the connection.
 7. Click **Continue**.
 
@@ -46,8 +47,8 @@ GRANT SELECT ON ALL VIEWS IN DATABASE <your_db> TO ROLE <your_role>;
 
 1. Select an Object you want to create in the Destination App from your pulled data. The Object describes the expected format of the data in the Destination App.
 2. Select a table to pull data from by providing the following information:
-    a. **Namespace**: The dataset ID within your poject (e.g., `my-namespace` in `project-name.my-namespace`)
-    a. **Table**: The name of the table in your namespace that you want to pull data from. The columns in this table will be mapped to the Object you selected.
+   1. **Namespace**: The dataset ID within your poject (e.g., `my-namespace` in `project-name.my-namespace`)
+   1. **Table**: The name of the table in your namespace that you want to pull data from. The columns in this table will be mapped to the Object you selected.
 3. Select **Preview** to see a sample of your table's data.
 4. Click **Continue**.
 
