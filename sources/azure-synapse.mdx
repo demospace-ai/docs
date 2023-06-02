@@ -5,7 +5,7 @@ description: "Learn how to connect to an Aure Synapse data source."
 
 ## Before You Start 
 
-Make sure that you have already set up a dedicated user for your Desintation Provider to access your Azure Synapse  database. 
+Make sure that you have already set up a dedicated user for our syncing service to access your Azure Synapse database. 
 
 ### Example User/Role Creation Template
 
@@ -25,7 +25,7 @@ GRANT SELECT ON <your_table> TO <your_user>;
 ### Connect a Source
 
 1. Log in to your Desintation App.
-2. Navigate to integrations. 
+2. Navigate to the integrations portal.
 3. Click **New Sync**.
 4. Choose **Azure Synapse**.
 5. Input the following details:
@@ -37,15 +37,15 @@ GRANT SELECT ON <your_table> TO <your_user>;
 6. Click **Test** to validate the connection.
 7. Click **Continue**.
 
-### Choose a Syncing Data Model
+### Choose an Object to sync
 
-1. Select a conversion object for your pulled data. These are pre-defined by your Desintation App to match the shape of their data.
+1. Select an Object you want to create in the Destination App from your pulled data. The Object describes the expected format of the data in the Destination App.
 2. Select a table to pull data from by providing the following information:
     - **Namespace**: The dataset ID within your poject (e.g., `my-namespace` in `project-name.my-namespace`)
-    - **Table**: The name of the table in your namespace that you want to pull data from. The columns in this table are used to map to the conversion object.
-3. Select **Preview** to see a sample of your table's imported data.
+    - **Table**: The name of the table in your namespace that you want to pull data from. The columns in this table will be mapped to the Object you selected.
+3. Select **Preview** to see a sample of your table's data.
 4. Click **Continue**.
 
 ### Map Fields
 
-For each field in your imported table, map it to an equivalent from the chosen Syncing Data Model. 
+For each field of the chosen Object, select one of the columns in your source table to map to it.
