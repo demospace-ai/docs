@@ -1,0 +1,48 @@
+---
+title: "MongoDB"
+description: "Learn how to connect to a MongoDB data source."
+---
+
+## Before You Start 
+
+Make sure that you have already set up a dedicated user for your Desintation Provider to access your MongoDB database. 
+
+### Example User/Role Creation Template
+
+```js
+db.createUser({
+  user: "your_user",
+  pwd: "********",
+  roles:[{role: "read" , db:"your_database"}]
+});
+```
+
+## How do I Set Up MongoDB as a Source?
+
+### Connect a Source
+
+1. Log in to your Desintation App.
+2. Navigate to integrations. 
+3. Click **New Sync**.
+4. Choose **MongoDB**.
+5. Input the following details:
+    - **Display Name**: A descriptive, human-readable name for this data source
+    - **Username**: This can be your personal username or you can create a dedicated user for syncing
+    - **Password**: The password for your syncing user
+    - **Host**: Your MongoDB URL used to sync
+    - **Connection Options**: Add any optional additional connection configuration here.
+6. Click **Test** to validate the connection.
+7. Click **Continue**.
+
+### Choose a Syncing Data Model
+
+1. Select a conversion object for your pulled data. These are pre-defined by your Desintation App to match the shape of their data.
+2. Select a table to pull data from by providing the following information:
+    - **Namespace**: The dataset ID within your poject (e.g., `my-namespace` in `project-name.my-namespace`)
+    - **Table**: The name of the table in your namespace that you want to pull data from. The columns in this table are used to map to the conversion object.
+3. Select **Preview** to see a sample of your table's imported data.
+4. Click **Continue**.
+
+### Map Fields
+
+For each field in your imported table, map it to an equivalent from the chosen Syncing Data Model. 
