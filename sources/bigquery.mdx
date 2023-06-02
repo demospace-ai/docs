@@ -1,0 +1,40 @@
+---
+title: "BigQuery"
+description: "Learn how to connect to a BigQuery data source."
+---
+
+## Before You Start 
+
+Make sure that you have already set up a dedicated [Google Service Account](https://console.cloud.google.com/iam-admin/serviceaccounts) for our syncing service that has the `BigQuery Data Editor` and `BigQuery Job User` roles. You'll also need to create and download a JSON key.
+
+<Frame>
+    <img style={{"box-shadow": "rgb(99 99 99 / 30%) 0 0 4px", "border-radius": "8px"}} src="/images/serviceaccount-key.gif" alt="setup destination" />
+</Frame>
+
+## How do I Set Up BigQuery as a Source?
+
+### Connect a Source
+
+1. Log in to your Desintation App.
+2. Navigate to the integrations portal.
+3. Click **New Sync**.
+4. Choose **BigQuery**.
+5. Input the following details:
+    - **Display Name**: A descriptive, human-readable name for this data source
+    - **Location**: The geographic location of your datasets (e.g.,`us-east1`)
+    - **Service Account Key**: A `JSON` object downloaded from [Google Service Accounts](https://console.cloud.google.com/iam-admin/serviceaccounts) when you create a new key for your project.
+6. Click **Test** to validate the connection.
+7. Click **Continue**.
+
+### Choose an Object to sync
+
+1. Select an Object you want to create in the Destination App from your pulled data. The Object describes the expected format of the data in the Destination App.
+2. Select a table to pull data from by providing the following information:
+    - **Namespace**: The dataset ID within your poject (e.g., `my-namespace` in `project-name.my-namespace`)
+    - **Table**: The name of the table in your namespace that you want to pull data from. The columns in this table will be mapped to the Object you selected.
+3. Select **Preview** to see a sample of your table's data.
+4. Click **Continue**.
+
+### Map Fields
+
+For each field of the chosen Object, select one of the columns in your source table to map to it.
