@@ -9,19 +9,25 @@ connections and start syncing data into your system.
 To get started with Fabra Connect, follow the steps below.
 
 ## High-Level Overview
+
 Here are the steps to add Fabra Connect into your application:
+
 1. Create a `link_token` by calling the [Create Link Token endpoint](/api-reference/create-link-token)
 1. Use the **Fabra Connect SDK** to initialize Fabra Connect with the `link_token`
 
 ## Create a Link Token
+
 <Snippet file="create-link-token.mdx" />
 
 ## Initialize Fabra Connect
-<Snippet file="fabra-connect.mdx" />```
+
+<Snippet file="fabra-connect.mdx" />
 
 ## Styling
+
 Fabra currently supports customizing the color used in the Fabra Connect component. To do so, just pass in an object when
 calling `useFabraConnect`:
+
 ```javascript
 const { open } = useFabraConnect({
   customTheme:{

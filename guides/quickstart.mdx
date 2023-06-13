@@ -4,18 +4,29 @@ description: "Get started with Fabra in minutes."
 ---
 
 ## 1. Setup a Fabra Account
+
 1. Login or create an account in [Fabra](https://app.fabra.io).
 1. Setup your organization.
 1. (Optional) Invite team members
 
 ## 2. Setup a Destination
+
 In Fabra's [Admin Panel](https://app.fabra.io), navigate to the `Destinations` tab on the side navigation bar, and
 click **New Destination** in the top right of the page.
+
 <Frame>
-    <img style={{"box-shadow": "rgb(99 99 99 / 30%) 0 0 4px", "border-radius": "8px"}} src="/images/setup-destination.gif" alt="setup destination" />
+  <img
+    style={{
+      "box-shadow": "rgb(99 99 99 / 30%) 0 0 4px",
+      "border-radius": "8px",
+    }}
+    src="/images/setup-destination.gif"
+    alt="setup destination"
+  />
 </Frame>
 
 ## 3. Create an Object
+
 In Fabra's [Admin Panel](https://app.fabra.io), navigate to the `Objects` tab on the side navigation bar, and
 click **New Object** in the top right of the page. Choose one of the Destinations you have configured from [Step 1](#1-setup-a-destination)
 and select the [namespace](/concepts/namespaces) and [table](/concepts/tables) where Fabra should
@@ -24,14 +35,24 @@ load data into for this object.
 Fabra will pull the existing fields/columns from your selected table, and you can then use those to define the fields you expect from your
 customers. If you want to omit a field, simply check the `omit` checkbox and Fabra will not prompt your customers for that field. Make sure
 to provide helpful display names and descriptions, since these will be what your customers see.
+
 <Frame>
-    <img style={{"box-shadow": "rgb(99 99 99 / 30%) 0 0 4px", "border-radius": "8px"}} src="/images/setup-object.gif" alt="setup object fields" />
+  <img
+    style={{
+      "box-shadow": "rgb(99 99 99 / 30%) 0 0 4px",
+      "border-radius": "8px",
+    }}
+    src="/images/setup-object.gif"
+    alt="setup object fields"
+  />
 </Frame>
 
 ## 4. Add Fabra Connect to your frontend
+
 Fabra Connect is a UI component that your users will interact with in order to setup their data source connections and start syncing data
 into your system. Getting setup is only two easy steps.
-<h3 style={{"marginTop": "24px"}}>Create a Link Token</h3>
+
+<h3 style={{ marginTop: "24px" }}>Create a Link Token</h3>
 <Snippet file="create-link-token.mdx" />
 
 <h3> Initialize Fabra Connect</h3>
