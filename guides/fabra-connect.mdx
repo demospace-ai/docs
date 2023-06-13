@@ -28,7 +28,7 @@ app.post("/link-token", async (req, res) => {
   const response = await fetch("https://api.fabra.io/link_token", {
     method: "POST",
     headers: {
-      "X_API_KEY": process.env.FABRA_API_KEY,
+      "X-API-KEY": process.env.FABRA_API_KEY,
     },
     body: JSON.stringify({end_customer_id: "abcd-1234-efgh-5678"})
   });
