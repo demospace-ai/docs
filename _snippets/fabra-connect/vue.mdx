@@ -1,0 +1,17 @@
+<Tab title="Vue">
+```vue
+<script>
+import FabraConnect from "@fabra/vue-fabra-connect";
+export default {
+  components: { FabraConnect },
+};
+</script>
+<template>
+  <fabra-connect :linkToken="ADD_GENERATED_LINK_TOKEN">
+    <template #button="props">
+      <button @click="props.onClick">Open Fabra Connect</button>
+    </template>
+  </fabra-connect>
+</template>
+```
+</Tab>
