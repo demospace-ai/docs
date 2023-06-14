@@ -1,0 +1,50 @@
+<Tab title="Angular">
+
+First, install the Fabra Connect SDK in your frontend:
+
+```sh
+npm install --save @fabra/angular-fabra-connect
+```
+
+In your root `app.module.ts`, add:
+
+```typescript
+import { FabraConnectModule } from "@fabra/angular-fabra-connect";
+
+@NgModule({
+  ...
+  imports: [
+    FabraConnectModule, ...
+  ],
+  ...
+})
+```
+
+In the `<yourComponent>.component.ts` file of the component where you want to open Fabra Connect, add:
+
+```typescript
+import { FabraConnectService } from "@fabra/angular-fabra-connect";
+
+export class FabraComponent implements OnInit {
+  linkToken: string = "";
+
+  constructor(private fabraConnectService: FabraConnectService) {}
+
+  ngOnInit() {
+    this.fabraConnectService.initialize();
+    this.linkToken = "YOUR_GENERATED_LINK_TOKEN";
+  }
+
+  onButtonClick() {
+    this.fabraConnectService.open(this.linkToken);
+  }
+}
+```
+
+In the `<yourComponent>.component.html` file of the component where you want to open Fabra Connect, add:
+
+```typescript
+<button (click)="onButtonClick()" class="button">Open Fabra Connect</button>
+```
+
+</Tab>
