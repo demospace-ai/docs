@@ -105,6 +105,12 @@
             "api-reference/get-tables",
             "api-reference/get-schema"
           ]
+        },
+        {
+          "group": "Customer Data",
+          "pages": [
+            "api-reference/query-object"
+          ]
         }
       ]
     }

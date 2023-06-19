@@ -32,18 +32,18 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CreateLinkTokenRequest'
+              $ref: "#/components/schemas/CreateLinkTokenRequest"
         required: true
       responses:
-        '200':
+        "200":
           description: Successfully created link token
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/CreateLinkTokenResponse'
-        '401':
+                $ref: "#/components/schemas/CreateLinkTokenResponse"
+        "401":
           description: Unauthorized
-        '500':
+        "500":
           description: Unexpected error
   /sync:
     post:
@@ -55,10 +55,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/SyncInput'
+              $ref: "#/components/schemas/SyncInput"
         required: true
       responses:
-        '200':
+        "200":
           description: Successfully created sync
           content:
             application/json:
@@ -66,10 +66,10 @@ paths:
                 type: object
                 properties:
                   sync:
-                    $ref: '#/components/schemas/Sync'
-        '401':
+                    $ref: "#/components/schemas/Sync"
+        "401":
           description: Unauthorized
-        '500':
+        "500":
           description: Unexpected error
   /syncs:
     get:
@@ -78,7 +78,7 @@ paths:
       summary: Get all syncs
       operationId: get_syncs
       responses:
-        '200':
+        "200":
           description: Successfully fetched syncs
           content:
             application/json:
@@ -88,10 +88,10 @@ paths:
                   syncs:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Sync'
-        '401':
+                      $ref: "#/components/schemas/Sync"
+        "401":
           description: Unauthorized
-        '500':
+        "500":
           description: Unexpected error
   /destination:
     post:
@@ -103,10 +103,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/DestinationInput'
+              $ref: "#/components/schemas/DestinationInput"
         required: true
       responses:
-        '200':
+        "200":
           description: Successfully created destination
           content:
             application/json:
@@ -114,10 +114,10 @@ paths:
                 type: object
                 properties:
                   destination:
-                    $ref: '#/components/schemas/Destination'
-        '401':
+                    $ref: "#/components/schemas/Destination"
+        "401":
           description: Unauthorized
-        '500':
+        "500":
           description: Unexpected error
   /destinations:
     get:
@@ -126,7 +126,7 @@ paths:
       summary: Get all destinations
       operationId: get_destinations
       responses:
-        '200':
+        "200":
           description: Successfully fetched destinations
           content:
             application/json:
@@ -136,10 +136,10 @@ paths:
                   destinations:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Destination'
-        '401':
+                      $ref: "#/components/schemas/Destination"
+        "401":
           description: Unauthorized
-        '500':
+        "500":
           description: Unexpected error
   /source:
     post:
@@ -151,10 +151,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/SourceInput'
+              $ref: "#/components/schemas/SourceInput"
         required: true
       responses:
-        '200':
+        "200":
           description: Successfully created source
           content:
             application/json:
@@ -162,10 +162,10 @@ paths:
                 type: object
                 properties:
                   source:
-                    $ref: '#/components/schemas/Source'
-        '401':
+                    $ref: "#/components/schemas/Source"
+        "401":
           description: Unauthorized
-        '500':
+        "500":
           description: Unexpected error
   /sources:
     get:
@@ -174,7 +174,7 @@ paths:
       summary: Get all sources
       operationId: get_sources
       responses:
-        '200':
+        "200":
           description: Successfully fetched sources
           content:
             application/json:
@@ -184,10 +184,10 @@ paths:
                   sources:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Source'
-        '401':
+                      $ref: "#/components/schemas/Source"
+        "401":
           description: Unauthorized
-        '500':
+        "500":
           description: Unexpected error
   /object:
     post:
@@ -199,10 +199,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ObjectInput'
+              $ref: "#/components/schemas/ObjectInput"
         required: true
       responses:
-        '200':
+        "200":
           description: Successfully created object
           content:
             application/json:
@@ -210,10 +210,10 @@ paths:
                 type: object
                 properties:
                   object:
-                    $ref: '#/components/schemas/Object'
-        '401':
+                    $ref: "#/components/schemas/Object"
+        "401":
           description: Unauthorized
-        '500':
+        "500":
           description: Unexpected error
   /objects:
     get:
@@ -222,7 +222,7 @@ paths:
       summary: Get all objects
       operationId: get_objects
       responses:
-        '200':
+        "200":
           description: Successfully fetched objects
           content:
             application/json:
@@ -232,10 +232,10 @@ paths:
                   objects:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Object'
-        '401':
+                      $ref: "#/components/schemas/Object"
+        "401":
           description: Unauthorized
-        '500':
+        "500":
           description: Unexpected error
   /connection/namespaces:
     get:
@@ -250,15 +250,15 @@ paths:
             type: integer
           required: true
       responses:
-        '200':
+        "200":
           description: Successfully fetched namespaces
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Namespaces'
-        '401':
+                $ref: "#/components/schemas/Namespaces"
+        "401":
           description: Unauthorized
-        '500':
+        "500":
           description: Unexpected error
   /connection/tables:
     get:
@@ -278,7 +278,7 @@ paths:
             type: string
           required: true
       responses:
-        '200':
+        "200":
           description: Successfully fetched tables
           content:
             application/json:
@@ -290,9 +290,9 @@ paths:
                     items:
                       type: string
                     example: ["events", "users", "companies"]
-        '401':
+        "401":
           description: Unauthorized
-        '500':
+        "500":
           description: Unexpected error
   /connection/schema:
     get:
@@ -317,7 +317,7 @@ paths:
             type: string
           required: true
       responses:
-        '200':
+        "200":
           description: Successfully fetched schema
           content:
             application/json:
@@ -327,18 +327,68 @@ paths:
                   schema:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Field'
-                    example: [{"name":"id","type":"string"}, {"name":"event_name","type":"string"}, {"name":"created_at","type":"timestamp"}, {"name":"updated_at","type":"timestamp"}]
-        '401':
+                      $ref: "#/components/schemas/Field"
+                    example:
+                      [
+                        { "name": "id", "type": "string" },
+                        { "name": "event_name", "type": "string" },
+                        { "name": "created_at", "type": "timestamp" },
+                        { "name": "updated_at", "type": "timestamp" },
+                      ]
+        "401":
           description: Unauthorized
-        '500':
+        "500":
+          description: Unexpected error
+  /customer/{endCustomerID}/object/{objectID}:
+    post:
+      tags:
+        - Customer Data
+      summary: Query object record for customer
+      operationId: query_object
+      parameters:
+        - in: path
+          name: endCustomerID
+          schema:
+            type: string
+          required: true
+        - in: path
+          name: objectID
+          schema:
+            type: integer
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/QueryFilters"
+        required: false
+      responses:
+        "200":
+          description: The response payload will match the schema you defined when creating the object
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  example_property_1:
+                    type: integer
+                    example: 1
+                  example_property_2:
+                    type: string
+                    example: "hello"
+                  example_property_3:
+                    type: object
+                    example: { nested: "data" }
+        "401":
+          description: Unauthorized
+        "500":
           description: Unexpected error
 components:
   schemas:
     CreateLinkTokenRequest:
       type: object
       required:
-       - end_customer_id
+        - end_customer_id
       properties:
         end_customer_id:
           type: string
@@ -388,12 +438,18 @@ components:
         frequency:
           type: integer
         frequency_units:
-          $ref: '#/components/schemas/FrequencyUnits'
+          $ref: "#/components/schemas/FrequencyUnits"
         field_mappings:
           type: array
           items:
-            $ref: '#/components/schemas/FieldMapping'
-          example: [{source_field_name: "event_name", destination_field_name: "event"}]
+            $ref: "#/components/schemas/FieldMapping"
+          example:
+            [
+              {
+                source_field_name: "event_name",
+                destination_field_name: "event",
+              },
+            ]
     SyncInput:
       type: object
       required:
@@ -438,13 +494,19 @@ components:
           type: integer
           example: 30
         frequency_units:
-          $ref: '#/components/schemas/FrequencyUnits'
+          $ref: "#/components/schemas/FrequencyUnits"
           example: minutes
         field_mappings:
           type: array
           items:
-            $ref: '#/components/schemas/FieldMapping'
-          example: [{source_field_name: "event_name", destination_field_name: "event"}]
+            $ref: "#/components/schemas/FieldMapping"
+          example:
+            [
+              {
+                source_field_name: "event_name",
+                destination_field_name: "event",
+              },
+            ]
     FrequencyUnits:
       type: string
       enum:
@@ -468,7 +530,7 @@ components:
           type: string
           example: event_name
         type:
-          $ref: '#/components/schemas/FieldType'
+          $ref: "#/components/schemas/FieldType"
     Namespaces:
       type: object
       properties:
@@ -490,7 +552,7 @@ components:
           type: string
           example: "abcd-1234-efgh-5678"
         connection:
-          $ref: '#/components/schemas/Connection'
+          $ref: "#/components/schemas/Connection"
     SourceInput:
       type: object
       required:
@@ -505,15 +567,15 @@ components:
           type: string
           example: "abcd-1234-efgh-5678"
         connection_type:
-          $ref: '#/components/schemas/ConnectionType'
+          $ref: "#/components/schemas/ConnectionType"
         bigquery_config:
-          $ref: '#/components/schemas/BigQueryConfig'
+          $ref: "#/components/schemas/BigQueryConfig"
         snowflake_config:
-          $ref: '#/components/schemas/SnowflakeConfig'
+          $ref: "#/components/schemas/SnowflakeConfig"
         redshift_config:
-          $ref: '#/components/schemas/RedshiftConfig'
+          $ref: "#/components/schemas/RedshiftConfig"
         mongodb_config:
-          $ref: '#/components/schemas/MongoDbConfig'
+          $ref: "#/components/schemas/MongoDbConfig"
     Destination:
       type: object
       properties:
@@ -524,7 +586,7 @@ components:
           type: string
           example: BigQuery
         connection:
-          $ref: '#/components/schemas/Connection'
+          $ref: "#/components/schemas/Connection"
     DestinationInput:
       type: object
       required:
@@ -535,15 +597,15 @@ components:
           type: string
           example: BigQuery
         connection_type:
-          $ref: '#/components/schemas/ConnectionType'
+          $ref: "#/components/schemas/ConnectionType"
         bigquery_config:
-          $ref: '#/components/schemas/BigQueryConfig'
+          $ref: "#/components/schemas/BigQueryConfig"
         snowflake_config:
-          $ref: '#/components/schemas/SnowflakeConfig'
+          $ref: "#/components/schemas/SnowflakeConfig"
         redshift_config:
-          $ref: '#/components/schemas/RedshiftConfig'
+          $ref: "#/components/schemas/RedshiftConfig"
         mongodb_config:
-          $ref: '#/components/schemas/MongoDbConfig'
+          $ref: "#/components/schemas/MongoDbConfig"
     Object:
       type: object
       properties:
@@ -569,7 +631,7 @@ components:
         object_fields:
           type: array
           items:
-            $ref: '#/components/schemas/ObjectField'
+            $ref: "#/components/schemas/ObjectField"
     ObjectInput:
       type: object
       required:
@@ -603,7 +665,7 @@ components:
           type: integer
           example: 30
         frequency_units:
-          $ref: '#/components/schemas/FrequencyUnits'
+          $ref: "#/components/schemas/FrequencyUnits"
           example: minutes
         end_customer_id_field:
           type: string
@@ -612,7 +674,7 @@ components:
         object_fields:
           type: array
           items:
-            $ref: '#/components/schemas/ObjectField'
+            $ref: "#/components/schemas/ObjectField"
     ObjectField:
       type: object
       properties:
@@ -620,7 +682,7 @@ components:
           type: string
           example: event_name
         type:
-          $ref: '#/components/schemas/FieldType'
+          $ref: "#/components/schemas/FieldType"
     FieldType:
       type: string
       enum:
@@ -636,7 +698,7 @@ components:
           type: integer
           example: 1
         connection_type:
-          $ref: '#/components/schemas/ConnectionType'
+          $ref: "#/components/schemas/ConnectionType"
     ConnectionType:
       type: string
       enum:
@@ -728,6 +790,22 @@ components:
         connection_options:
           type: string
           example: retryWrites=true&w=majority
+    QueryFilters:
+      type: array
+      items:
+        $ref: "#/components/schemas/QueryFilter"
+    QueryFilter:
+      type: object
+      required:
+        - field_name
+        - field_value
+      properties:
+        field_name:
+          type: string
+          example: user_id
+        field_value:
+          type: string
+          example: 2
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
