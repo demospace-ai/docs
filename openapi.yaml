@@ -378,6 +378,13 @@ paths:
                     example: "hello"
                   example_property_3:
                     type: object
+                    properties:
+                      nested_property_1:
+                        type: string
+                        example: "world"
+                      nested_property_2:
+                        type: integer
+                        example: 2
                     example: { nested: "data" }
         "401":
           description: Unauthorized
@@ -791,9 +798,11 @@ components:
           type: string
           example: retryWrites=true&w=majority
     QueryFilters:
-      type: array
-      items:
-        $ref: "#/components/schemas/QueryFilter"
+      properties:
+        filters:
+          type: array
+          items:
+            $ref: "#/components/schemas/QueryFilter"
     QueryFilter:
       type: object
       required:
