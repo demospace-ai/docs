@@ -361,8 +361,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/QueryFilters"
-        required: false
+              type: object
+              properties:
+                filters:
+                  type: array
+                  items:
+                    $ref: "#/components/schemas/QueryFilter"
+              required: false
       responses:
         "200":
           description: The response payload will match the schema you defined when creating the object
@@ -798,12 +803,6 @@ components:
         connection_options:
           type: string
           example: retryWrites=true&w=majority
-    QueryFilters:
-      properties:
-        filters:
-          type: array
-          items:
-            $ref: "#/components/schemas/QueryFilter"
     QueryFilter:
       type: object
       required:
