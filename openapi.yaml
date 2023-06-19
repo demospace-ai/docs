@@ -367,7 +367,7 @@ paths:
                   type: array
                   items:
                     $ref: "#/components/schemas/QueryFilter"
-              required: false
+        required: false
       responses:
         "200":
           description: The response payload will match the schema you defined when creating the object
