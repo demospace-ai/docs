@@ -344,6 +344,7 @@ paths:
       tags:
         - Customer Data
       summary: Query object record for customer
+      description: Query a single object record directly from a customer's source. The response payload will match the object schema you've defined.
       operationId: query_object
       parameters:
         - in: path
