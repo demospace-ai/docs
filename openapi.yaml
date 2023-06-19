@@ -339,7 +339,7 @@ paths:
           description: Unauthorized
         "500":
           description: Unexpected error
-  /customer/{endCustomerID}/object/{objectID}:
+  /customer/{endCustomerID}/object/{objectID}/record:
     post:
       tags:
         - Customer Data
