@@ -370,19 +370,19 @@ paths:
               schema:
                 type: object
                 properties:
-                  example_property_1:
+                  example_field_1:
                     type: integer
                     example: 1
-                  example_property_2:
+                  example_field_2:
                     type: string
                     example: "hello"
-                  example_property_3:
+                  example_field_3:
                     type: object
                     properties:
-                      nested_property_1:
+                      nested_field_1:
                         type: string
                         example: "world"
-                      nested_property_2:
+                      nested_field_2:
                         type: integer
                         example: 2
                     example: { nested: "data" }
